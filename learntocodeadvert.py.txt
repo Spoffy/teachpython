@@ -1,0 +1,35 @@
+def meet_new_people():
+    None
+
+def eat_food():
+    None
+
+def learn_new_skills():
+    None
+
+def be_silly():
+    None
+
+def have_an_awesome_time():
+    None
+
+def is_getting_late():
+    None
+
+
+def begin_learn_to_code_event():
+    event_is_happening = True
+
+    meet_new_people()
+    eat_food()
+    learn_new_skills()
+    be_silly()
+
+    while event_is_happening:
+        have_an_awesome_time()
+        
+        if is_getting_late():
+            event_is_happening = False;
+
+        
+begin_learn_to_code_event()
