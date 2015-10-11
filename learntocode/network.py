@@ -14,4 +14,4 @@ def send(data):
     requests.post(SERVER_ADDRESS, data=json.dumps(data))
 
 def send_message(debug_info):
-    post(debug_info.to_json())
+    send(debug_info.to_json())
