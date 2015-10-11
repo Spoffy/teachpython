@@ -17,9 +17,9 @@ def setup_excepthook(error_callback=None):
         source_path = path.abspath(inspect.getsourcefile(trace))
         source = _get_source(source_path)
         formatted_trace = "".join(traceback.format_exception(type, value, trace))
-        error_debug = ErrorDebugInfo(formatted_trace, source_path, source)
+        debug_info = ErrorDebugInfo(formatted_trace, source_path, source)
 
-        if error_callback: error_callback(error_debug, type)
+        if error_callback: error_callback(debug_info, type)
 
         traceback.print_exception(type, value, trace)
 
