@@ -2,7 +2,7 @@ import requests
 import json
 
 #Temporary until configurations are implemented
-SERVER_ADDRESS = "http://127.0.0.1"
+SERVER_ADDRESS = "http://127.0.0.1:8080/analytics"
 
 class Message:
     _default_message = dict()
@@ -11,7 +11,7 @@ class Message:
         return json.dumps(_default_message)
 
 def send(data):
-    requests.post(SERVER_ADDRESS, data=json.dumps(data))
+    requests.post(SERVER_ADDRESS, data=data, headers={"content-type": "application/json"})
 
 def send_message(debug_info):
     send(debug_info.to_json())
