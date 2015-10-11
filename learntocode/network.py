@@ -18,9 +18,8 @@ def encode(message):
         "message": message.serialise()
     })
 
-def on_message_received(raw_json):
+def on_message_received(packet):
     try:
-        packet = json.loads(raw_json)
         handler = _message_handlers[packet["message_type"]]
         handler(packet["message"])
     except KeyError:
@@ -31,4 +30,4 @@ def send(message):
             headers={"content-type": "application/json"})
 
 def add_message_handler(type, handler):
-    _message_handles[type] = handler
+    _message_handlers[type] = handler

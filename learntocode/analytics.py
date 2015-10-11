@@ -19,8 +19,14 @@ class ErrorDebugInfo():
             "source": self.source
         }
 
-    def deserialise(self):
-        pass
+def deserialise_debug_info(data):
+    return ErrorDebugInfo(data["trace"], data["file_path"], data["source"])
 
-def debug_info_handler(debug_info, exception_class):
+def exception_handler(debug_info, exception_class):
     network.send(debug_info)
+
+def message_received_handler(data):
+    debug_info = deserialise_debug_info(data)
+    print(debug_info)
+
+network.add_message_handler(ErrorDebugInfo.MESSAGE_TYPE, message_received_handler)
