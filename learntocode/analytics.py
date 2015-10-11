@@ -1,6 +1,6 @@
 import json
 
-class ErrorInfo:
+class ErrorDebugInfo:
     def __init__(self, trace, file_path, source):
         self.trace = trace
         self.file_path = file_path
