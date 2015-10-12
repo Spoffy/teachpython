@@ -17,16 +17,23 @@ def encode(message):
         "message": message.serialise()
     })
 
+def decode(packet):
+    decoder = _message_decoders[packet["message_type"]]
+    return decoder(packet["message"])
+
 def on_message_received(packet):
-    message_type = packet["message_type"]
-    handle = _message_handlers[message_type]
-    decode = _message_decoders[message_type]
-    packet["message"] = decode(packet["message"])
-    handle(packet)
+    handle = _message_handlers[packet["message_type"]]
+    packet["message"] = decode(packet)
+    return handle(packet)
 
 def send(message):
-    requests.post(config.SERVER_ADDRESS, data=encode(message),
+    request = requests.post(config.SERVER_ADDRESS, data=encode(message),
             headers={"content-type": "application/json"})
+
+    try:
+      return request.json()
+    except ValueError:
+      return None
 
 def add_message_handler(type, handler):
     _message_handlers[type] = handler

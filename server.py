@@ -3,6 +3,6 @@ from learntocode import network
 
 @post("/analytics")
 def print_analytics():
-    network.on_message_received(request.json)
+    return network.on_message_received(request.json)
 
 run(host="0.0.0.0", port=8080)
