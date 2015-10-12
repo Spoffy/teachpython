@@ -1,5 +1,11 @@
 import json
 from . import network
+import os
+import os.path as path
+import time
+import traceback
+
+USER_ERROR_LOG_PATH = path.abspath("analytics/users")
 
 class ErrorDebugInfo():
     MESSAGE_TYPE = "DEBUG_INFO"
@@ -26,7 +32,21 @@ def exception_handler(debug_info, exception_class):
     network.send(debug_info)
 
 def message_received_handler(packet):
-    print(packet)
+    sanitised_name = path.basename(packet["user_id"]).replace("/", "")
+    log_path = path.join(USER_ERROR_LOG_PATH, sanitised_name)
+    debug_info = packet["message"]
+
+    print("ANALYTICS: Error received from: ", sanitised_name)
+    try:
+      os.makedirs(USER_ERROR_LOG_PATH, exist_ok=True)
+      with open(log_path, "a") as dest_file:
+        print(time.asctime(time.gmtime(packet["time"])), file=dest_file)
+        print("File: ", debug_info.file_path, file=dest_file)
+        print("Trace: ", debug_info.trace, file=dest_file)
+        print("Source: ", debug_info.source, file=dest_file)
+        print("\n\n\n", file=dest_file)
+    except IOError:
+      traceback.print_exc()
 
 network.add_message_decoder(ErrorDebugInfo.MESSAGE_TYPE, deserialise_debug_info)
 network.add_message_handler(ErrorDebugInfo.MESSAGE_TYPE, message_received_handler)
