@@ -25,8 +25,9 @@ def deserialise_debug_info(data):
 def exception_handler(debug_info, exception_class):
     network.send(debug_info)
 
-def message_received_handler(data):
-    debug_info = deserialise_debug_info(data)
-    print(debug_info)
+def message_received_handler(packet):
+    print(packet)
 
+network.add_message_decoder(ErrorDebugInfo.MESSAGE_TYPE, deserialise_debug_info)
 network.add_message_handler(ErrorDebugInfo.MESSAGE_TYPE, message_received_handler)
+
