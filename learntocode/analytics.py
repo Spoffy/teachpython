@@ -16,7 +16,9 @@ class ErrorDebugInfo():
     def __str__(self):
         return "\n".join([str(self.file_path), str(self.source), str(self.trace)])
 
+    #Required to be sent using network.send
     def serialise(self):
+        """Converts this class to a dictionary representation"""
         return {
             "trace": self.trace,
             "file_path": self.file_path,
@@ -38,10 +40,14 @@ def message_received_handler(packet):
     try:
       os.makedirs(config.USER_ERROR_LOG_PATH, exist_ok=True)
       with open(log_path, "a") as dest_file:
+        print("------", file=dest_file)
         print(time.asctime(time.gmtime(packet["time"])), file=dest_file)
         print("File: ", debug_info.file_path, file=dest_file)
+        print("------", file=dest_file)
         print("Trace: ", debug_info.trace, file=dest_file)
+        print("------", file=dest_file)
         print("Source: ", debug_info.source, file=dest_file)
+        print("------", file=dest_file)
         print("\n\n\n", file=dest_file)
     except IOError:
       traceback.print_exc()
