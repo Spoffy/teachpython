@@ -24,7 +24,7 @@ def move(name, dir, amount):
 
 def message_received_handler(packet):
     move = packet["message"]
-    print("MOVE: ", str(move.name), " ", str(move.dir), " ", str(move.amount))
+    print("MOVE: ", str(move.name), str(move.dir), str(move.amount))
 
 network.add_message_decoder(Move.MESSAGE_TYPE, deserialise_move)
 network.add_message_handler(Move.MESSAGE_TYPE, message_received_handler)
