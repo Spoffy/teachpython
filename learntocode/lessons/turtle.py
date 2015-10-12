@@ -1,4 +1,4 @@
-from . import config, network
+from .. import config, network
 
 class Move:
     MESSAGE_TYPE = "MOVE_ORDER"
