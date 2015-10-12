@@ -1,3 +1,4 @@
+from . import config
 import json
 import requests
 import sys
@@ -5,16 +6,12 @@ import time
 import traceback
 import uuid
 
-#Temporary until configurations are implemented
-SERVER_ADDRESS = "http://127.0.0.1:8080/analytics"
-USER_ID = str(uuid.getnode())
-
 _message_handlers = dict()
 _message_decoders = dict()
 
 def encode(message):
     return json.dumps({
-        "user_id": USER_ID,
+        "user_id": config.USER_ID,
         "time": time.time(),
         "message_type": message.MESSAGE_TYPE,
         "message": message.serialise()
@@ -28,7 +25,7 @@ def on_message_received(packet):
     handle(packet)
 
 def send(message):
-    requests.post(SERVER_ADDRESS, data=encode(message),
+    requests.post(config.SERVER_ADDRESS, data=encode(message),
             headers={"content-type": "application/json"})
 
 def add_message_handler(type, handler):
