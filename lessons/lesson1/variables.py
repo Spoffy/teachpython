@@ -13,6 +13,22 @@ putting a hash before it, like so:
 """
 
 """
+Printing
+##########
+
+Printing lets you output text from your program.
+Printing is one of simplest and often most useful operations you can do.
+You'll see many examples of printing throughout these sessions, providing
+useful info when you run this example!
+"""
+
+#Printing some text
+print("This is how to print some text!")
+
+#Printing multiple bits of text
+print("Text part one!", "Text part two!")
+
+"""
 Variables
 ##########
 
@@ -38,7 +54,7 @@ some_variable_1 = 3
 #You can use a variable in lots of places
 #Anywhere you can put a value, really!
 #For now, let's test it with printing!
-print(some_variable_1)
+print("This is an example of printing a variable:", some_variable_1)
 
 """
 Types
@@ -126,6 +142,8 @@ another_string_method = """ More strings! """
 example_adding = "This is a " + "sentence."
 added_strings = text + more_text
 
+print("An example of concatenation:", added_strings)
+
 """
 Combining Types
 ##########
@@ -153,8 +171,8 @@ a = 3 + 2.0
 #This errors
 #b = "A" + 3
 
-#However, you can convert using int(), float(), str()
-#These are all different functions. Again, we'll cover this soon!
+#However, you can convert using the functions int(), float(), str()
+#Don't worry if you don't understand exactly, we'll cover functions soon!
 b = "A" + str(3)
 
 
