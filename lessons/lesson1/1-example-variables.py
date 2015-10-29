@@ -62,7 +62,8 @@ Types
 Data comes in lots of different "types".
 For example Integers, Floating Point (decimal numbers), Strings.
 Roughly, a type tells Python (and you) what that value can do.
-
+"""
+"""
 Integer numbers:
     These store the value of a whole number (no decimal places).
     They have a highest possible value and a lowest possible value.
@@ -113,6 +114,24 @@ c = 4 * 1.5
 
 #Division
 d = 3 / 2
+
+"""
+Booleans:
+    Booleans are a type that can be either True or False.
+    They're typically not entered manually, but lots of other things convert
+    to booleans.
+    
+    The most common use cases for these are in "if" statements, which we'll see
+    later!
+"""
+
+#A boolean
+t = True
+f = False
+
+#This evaluates to a boolean, even if it isn't obvious at first.
+#It's true if 5 is greater than 4, which it is.
+x = 5 > 4
 
 """
 Strings:
