@@ -88,6 +88,11 @@ d = 2 * 2
 #Division
 e = 4 / 2
 
+#Remainder (gets the remainder when divided by the other value)
+#(Also known as modulo)
+f = 5 % 2
+#f now has value 1.
+
 #Integers can do more, but this'll do for now!
 
 """
