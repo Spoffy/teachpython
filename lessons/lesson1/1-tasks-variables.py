@@ -48,6 +48,7 @@ print(seven)
 
 """
 Task 03
+##########
 
 Can you finish the program below so that:
   the variable mystring is assigned to the value of "Python" by string concatenation
@@ -70,3 +71,15 @@ print(fourteen)
 nine = 3 
 print(nine)
 """
+
+"""
+Task 04
+##########
+
+Work out how many days there are left over, if 1214 has all the whole weeks
+removed. 
+
+Hint: Use modulo % to find the remainder when divided by a number.
+"""
+
+#Write your code here:
