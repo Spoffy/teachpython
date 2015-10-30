@@ -47,6 +47,67 @@ def task_2():
     
 print(task_2())
 
+
+"""
+Task 03
+##########
+
+Finish the if statement to print only when yourAge + myAge (ourCombinedAge) is greater than to 38
+
+Reminder: An if statement only completes the indented code if the if condition evaluates to true.
+Reminder: An if statement follows the syntax: if CONDITION :. eg: 'if 2 + 2 == 4:' 
+Example: 2 + 2 == 4 evaluates to true.
+Example: 5 > 3 evaluates to true.
+Example: 3 >= 3 evaluates to true.
+"""
+
+#Uncomment and complete the code below
+#myAge = 19
+#yourAge = 
+#ourCombinedAge =
+
+#if 
+#  print(ourCombinedAge)
+
+"""
+Task 04
+##########
+
+Finish the if/else statement below to check if myString is equal to a string of your choice.
+Make sure you set myString equal to a string first!
+"""
+
+#Uncomment and complete the code below: 
+#myString =
+
+#if
+#  print("Your two strings were equal")
+#else:
+#  print("Your two strings were not equal")
+
+
+"""
+Task 05
+##########
+
+#Finish the if/elif/else statement below to evaluate if myInt is divisible by 4, else evaluate if it is divisible by 3.
+#Try out myInt for several different values!
+
+#Reminder: We can use the modulo operator to get the remainder. eg: 7 % 3 is equal to 1. (because 2*3 + 1 is equal to 7)
+
+#Hint: If a modulo result is zero, then the left hand operator is wholly divisible by the right hand operator. 
+"""
+
+#Uncomment and complete the code below: 
+#myInt =
+
+#if
+#  print("myInt was divisible by four.")
+#elif
+#  print("myInt was divisible by three but not four.")
+#else:
+#  print("myInt was divisible by neither three nor four.")
+
 """
 Task 03
 ##########
