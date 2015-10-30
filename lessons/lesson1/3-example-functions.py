@@ -16,6 +16,13 @@ These are called parameters.
 Functions can return a value. This effectively means that the place where the
 function is called is equal to that value.
 
+Metaphor:
+    Think of functions as a microwave meal. They already contain the ingredients
+    and instructions on how to cook it. All you have to do it put it in the
+    microwave, wait a bit, and take out the final product.
+    
+    (Note: It's not perfect, but you get the idea!)
+
 This is all quite confusing.
 Lets have some examples to make all this clearer.
 """
